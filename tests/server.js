@@ -20,8 +20,10 @@ describe('when server is up, ', function () {
 		});
 	});
 
-	after(function () {
-		httpServer.close();
+	after(function (done) {
+		httpServer.close(function () {
+			done();
+		});
 	});
 
 	describe('requesting', function () {
