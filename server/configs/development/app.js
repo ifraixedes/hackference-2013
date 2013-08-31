@@ -3,7 +3,7 @@
 var settings = require('../../settings.js');
 var connect = require('connect');
 var express = require('express');
-
+var sessMangerMiddleware = require(settings.libsPath + '/ifc/connect/sessionManager');
 
 module.exports = {
 	http: {
@@ -20,6 +20,8 @@ module.exports = {
 	},
 	express_middlewares: [
 		connect.middleware.json(), // Get json body from application/json headers but it doesn't parse it
+		settings.libsPath + '/sessionBootstrapper',
+		sessMangerMiddleware(require(settings.libsPath + '/sessionManager')),
 		settings.appLoggers.getExpressWinston('logger'), // Request logger
 		settings.routesPath, // Routes
 		settings.appLoggers.getExpressWinston('errorLogger') // Error logger

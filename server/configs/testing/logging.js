@@ -56,6 +56,22 @@ module.exports = {
 						}
 					}
 				]
+			},
+			mongodb: {
+				global: {
+					flatFiles: {
+						rootPath: settings.rootPath
+							+ '/tmp/logs'
+					}
+				},
+				transports: [
+					{
+						transport: winston.transports.File,
+						options: {
+							filename: 'mongodb_test.log'
+						}
+					}
+				]
 			}
 		},
 		expressWinston: {

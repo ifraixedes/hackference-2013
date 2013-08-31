@@ -68,6 +68,29 @@ module.exports = {
 					}
 				]
 			},
+			mongodb: {
+				global: {
+					flatFiles: {
+						rootPath: settings.rootPath
+							+ '/tmp/logs'
+					}
+				},
+				transports: [
+					{
+						transport: winston.transports.Console,
+						options: {
+							json: true,
+							colorize: true
+						}
+					},
+					{
+						transport: winston.transports.File,
+						options: {
+							filename: 'mongo_dev.log'
+						}
+					}
+				]
+			}
 		},
 		expressWinston: {
 			errorLogger: {
