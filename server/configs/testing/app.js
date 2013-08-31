@@ -2,6 +2,7 @@
 
 var settings = require('../../settings.js');
 var express = require('express');
+var connect = require('connect');
 
 
 module.exports = {
