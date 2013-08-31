@@ -1,0 +1,12 @@
+<div class="row-fluid">
+    <div class="span12">
+        <section>
+            <article ng-repeat="event in events">
+                <div title="Go to event details" class="event" ng-click="gotoEvent(event)">
+                    <h2>{{event.name}}</h2>
+                    <h6>{{event.description}}</h6>
+                </div>
+            </article>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+$iconSpritePath: "../images/glyphicons-halflings.png";
+$iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
+
+@import "bootstrap-sass/lib/bootstrap";
+
+body {
+    background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+.event {
+  background-color: #eeeeee;
+  height: 100px;
+  margin-bottom: 20px;
+  border: 1px solid;
+  border-color: #777;
+  color: #777;
+  vertical-align: middle;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  width: 100%;
+  padding: 20px;
+}
+
+.event.active {
+  background-color: #5C85FF;
+  color: white;
+}
+.event:hover {
+  background-color: #5C85FF;
+  color: white;
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s;
+  -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s;
+  -o-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s;
+  -ms-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s;
+  cursor: pointer;
+}
