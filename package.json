@@ -1,0 +1,54 @@
+{
+	"author": "Ivan Fraixedes <ivan@fraixed.es>",
+	"name": "Hackference-TweetTv",
+	"description": "Just my hack for hacference 2013 (31/08-01/09)",
+	"keywords": ["hackference"],
+	"version": "0.0.1",
+	"contributors": [
+		{
+			"name": "Ivan Fraixedes",
+			"email": "ivan@fraixed.es"
+		}
+	],
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://opensource.org/licenses/MIT"
+		}
+	],
+	"engines": {
+		"node": "~10.0.0"
+	},
+	"config": {
+		"env": "development",
+		"development": {
+			"http": {
+				"port": "8010"
+			}
+		},
+		"testing": {
+			"http": {
+				"port": "8010"
+			}
+		}
+	},
+	"scripts": {
+		"start": "node ./server/run",
+		"debug": "node --debug-brk ./server/app",
+		"test": "mocha tests"
+	},
+	"dependencies": {
+		"express": "~3.2.6",
+		"connect": "~2.7.11",
+		"wirexroutes": "~0.0.5",
+		"winston": "~0.7.2",
+		"express-winston": "~0.2.0",
+		"validator": "~1.4.0"
+	},
+	"devDependencies": {
+		"mocha": "~1.12.0",
+		"should": "~1.2.2"
+	},
+	"preferGlobal": false,
+	"private": true
+}
