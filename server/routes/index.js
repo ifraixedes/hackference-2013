@@ -10,6 +10,8 @@ module.exports = function (expressApp) {
 	var Wirexroutes = require('wirexroutes');
 	var routes = require('./app');
 
+	routes.push.apply(routes, require('./event'));
+
 	new Wirexroutes(expressApp, routes);
 
 };
