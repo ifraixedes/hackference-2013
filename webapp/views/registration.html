@@ -1,22 +1,22 @@
 <h1>Registration</h1>
 
-<form name="registration" data-ng-submit="submit()">
-	<label>email: <input name="email" data-ng-model="email" type="email" data-ng-trim="true" required>
+<form name="registration" data-ng-submit="submit()" class="pure-form" style="padding: 5px;">
+	<label>email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="email" data-ng-model="email" type="email" data-ng-trim="true" required>
 	</label>
-	<br>
-	<label>password: <input name="password" data-ng-model="password" type="password"
+	<br><br>
+	<label>password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="password" data-ng-model="password" type="password"
 	                        data-ng-minlength="8"
 	                         required></label>
-	<br>
-	<label>password confirmation: <input name="pwdConfirmation" data-ng-model="pwdConfirmation"
+	<br><br>
+	<label>confirm pass:&nbsp; <input name="pwdConfirmation" data-ng-model="pwdConfirmation"
 	                                        type="password"
 	                                        data-ng-minlength="8" required></label>
-	<br>
+	<br><br>
 
-	<label>telephone: <input name="telephone" data-ng-model="telephone" type="tel"
+	<label>telephone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="telephone" data-ng-model="telephone" type="tel"
 	                         data-ng-trim="true"></label>
-		<br>
-		<input type="submit" data-ng-disabled="registration.$invalid" value="registration">
+	<br><br>
+		<input class="pure-button pure-button-success" type="submit" data-ng-disabled="registration.$invalid" value="registration">
 
 	<span data-ng-show="error">It happened some error, please try again</span>
 </form>

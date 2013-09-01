@@ -1,9 +1,10 @@
 <div data-ng-hide="isError">
-	<button data-ng-click="previousPage()" data-ng-disabled="disablePrev"><<--</button>
-	<button data-ng-click="nextPage()">-->></button>
+	<button data-ng-click="previousPage()" data-ng-disabled="disablePrev"
+	        class="pure-button prev">&#171;</button>
+	<button data-ng-click="nextPage()"  class="pure-button next" >&#187;</button>
 	<li data-ng-repeat="event in eventsList">
 		<ul>
-			<button data-ng-click="eventClick(event)">details</button>
+			<button class="pure-button pure-button-primary" data-ng-click="eventClick(event)">+</button>
 			{{event.name}} ({{event.start_date | date:'medium'}} --> {{event.end_date | date:'medium'}})
 		</ul>
 	</li>

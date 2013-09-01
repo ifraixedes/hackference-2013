@@ -1,13 +1,18 @@
-<h1>Come into!!!</h1>
-
-<form name="login" data-ng-submit="submit()">
-	<label>email: <input name="email" data-ng-model="email" type="email" data-ng-trim="true" required>
+<br>
+<form name="login" data-ng-submit="submit()" class="pure-form" style="padding: 5px;">
+	<label for="email">email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input id="email" name="email"
+	                                                     data-ng-model="email"
+	                                        type="email"
+	                          data-ng-trim="true"                   required>
 	</label>
-	<br>
-	<label>password: <input name="password" data-ng-model="password" type="password"
+	<br><br>
+	<label for="password">password: <input id="password" name="password" data-ng-model="password"
+	                      type="password"
 	                        data-ng-minlength="8"
 	                         required></label>
-	<input type="submit" data-ng-disabled="login.$invalid" value="login">
+	<br><br>
+	<input  class="pure-button pure-button-success"  type="submit" data-ng-disabled="login.$invalid
+	" value="login">
 
 	<span data-ng-show="error">It happened some error, please try again</span>
 </form>

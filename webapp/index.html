@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html data-ng-app="hfApp">
 <head>
-	<title>Hackference</title>
-
+	<title>Hackference 2013</title>
+	<link href="/styles/pure-min.css" rel="stylesheet">
+	<link href="/styles/pure-custom.css" rel="stylesheet">
 	<script src="/scripts/vendor/angular-1.1.4/angular.js"></script>
 
 	<script src="/scripts/hackference/modules.js"></script>
@@ -20,7 +21,8 @@
 </head>
 <body>
 <div>
-	<div style="min-width: 30%;" data-ng-controller="MenuCtrl">
+	<div class="pure-menu pure-menu-open" style="min-width: 30%;" data-ng-controller="MenuCtrl">
+		<a class="pure-menu-heading">Joindular</a>
 		<ul>
 			<li data-ng-repeat="item in menuItems">
 				<a data-ng-href="{{item.path}}">{{item.name}}</a>

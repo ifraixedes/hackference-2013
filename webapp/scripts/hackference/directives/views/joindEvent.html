@@ -1,9 +1,69 @@
 <div data-ng-hide="isError">
-	{{event}}
+	<dl>
+		<dt>Name</dt>
+		<dd>{{event.name}}</dd>
+		<dt>Dates</dt>
+		<dd>{{event.start_date | date:'medium'}} / {{event.end_date | date:'medium'}}</dd>
+		<dt>Description</dt>
+		<dd>{{event.description}}</dd>
+		<dt>Tags</dt>
+		<dd>
+			<ul>
+				<li data-ng-repeat="tag in event.tags">{{tag}}</li>
+			</ul>
+		</dd>
+	</dl>
 	<hr>
-	{{talks}}
+	<table class="pure-table">
+		<thead>
+		<tr>
+			<th colspan="5" style="text-align: center">Talks</th>
+		</tr>
+		<tr>
+			<th>#</th>
+			<th>Title</th>
+			<th>Description</th>
+			<th>Start</th>
+			<th>Duration (min)</th>
+		</tr>
+		</thead>
+
+		<tbody>
+		<tr data-ng-repeat="talk in talks" data-ng-class-odd="'pure-table-odd'"
+		    data-ng-class-even="'pure-table-even'">
+			<td>{{$index}}</td>
+			<td>{{talk.talk_title}}</td>
+			<td>{{talk.talk_description}}</td>
+			<td>{{talk.start_date | date:'medium'}}</td>
+			<td>{{talk.duration}}</td>
+		</tr>
+		</tbody>
+	</table>
+
 	<hr>
-	{{comments}}
+	<table class="pure-table">
+		<thead>
+		<tr>
+			<th colspan="5" style="text-align: center">Comments</th>
+		</tr>
+		<tr>
+			<th>#</th>
+			<th>Comment</th>
+			<th>Created</th>
+			<th>Author</th>
+		</tr>
+		</thead>
+
+		<tbody>
+		<tr data-ng-repeat="comment in comments" data-ng-class-odd="'pure-table-odd'"
+		    data-ng-class-even="'pure-table-even'">
+			<td>{{$index}}</td>
+			<td>{{comment.comment}}</td>
+			<td>{{comment.created_date | date:'medium'}}</td>
+			<td>{{comment.user_display_name}}</td>
+		</tr>
+		</tbody>
+	</table>
 </div>
 <div data-ng-show="isError">
 	<span data-ng-bind="error"></span>
