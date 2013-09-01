@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html data-ng-app="hfApp">
+<head>
+	<title>Hackference</title>
+
+	<script src="/scripts/vendor/angular-1.1.4/angular.js"></script>
+
+	<script src="/scripts/hackference/modules.js"></script>
+	<script src="/scripts/hackference/directives/joindEventsList.js"></script>
+	<script src="/scripts/hackference/directives/joindEvent.js"></script>
+
+	<script src="/scripts/hackference/app.js"></script>
+	<script src="/scripts/hackference/services/userSession.js"></script>
+	<script src="/scripts/hackference/ctrls/home.js"></script>
+	<script src="/scripts/hackference/ctrls/menu.js"></script>
+	<script src="/scripts/hackference/ctrls/event.js"></script>
+	<script src="/scripts/hackference/ctrls/login.js"></script>
+	<script src="/scripts/hackference/ctrls/registration.js"></script>
+	<script src="/scripts/hackference/ctrls/attend.js"></script>
+</head>
+<body>
+<div>
+	<div style="min-width: 30%;" data-ng-controller="MenuCtrl">
+		<ul>
+			<li data-ng-repeat="item in menuItems">
+				<a data-ng-href="{{item.path}}">{{item.name}}</a>
+			</li>
+		</ul>
+	</div>
+	<div style="width: 70%; float:rigth" data-ng-view>
+
+	</div>
+</div>
+</body>
+</html>

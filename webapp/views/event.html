@@ -1,0 +1,8 @@
+<h1>Event</h1>
+<div data-ng-controller="AttendCtrl">
+	<button data-ng-disabled="dissabled" data-ng-click="submit(eventUri)">attend</button>
+	<span data-ng-show="error">It happened some error, please try again</span>
+</div>
+
+<div data-joind-event uri="{{eventUri}}" talks="{{eventTalksUri}}"
+     comments="{{eventCommentsUri}}"></div>

@@ -17,7 +17,7 @@ module.exports = function sessionManager(sess) {
 	 */
 	sess.userLogIn = function userLogIn(user, callback) {
 
-		if (user._id) {
+		if (!user._id) {
 			callback(new Error('User\'s _id attribute is required'));
 			return;
 		}
@@ -37,7 +37,7 @@ module.exports = function sessionManager(sess) {
 				id: user._id.toString()
 			};
 
-			callback(null);
+			callback();
 		});
 	};
 
@@ -56,7 +56,7 @@ module.exports = function sessionManager(sess) {
 
 
 	sess.isUserAuthenticated = function isUserAuthenticated() {
-		if ((sess.user) && (sess.user._id)) {
+		if ((sess.user) && (sess.user.id)) {
 			return true;
 		} else {
 			return false;
@@ -65,7 +65,7 @@ module.exports = function sessionManager(sess) {
 
 	sess.getUser = function () {
 		if (sess.isUserAuthenticated()) {
-			sess.user;
+			return sess.user;
 		} else {
 			return null;
 		}

@@ -8,7 +8,7 @@ var settings = require('../../../../settings');
  */
 var checker = require('validator').check;
 var defLogger = settings.appLoggers.getWinstonLogger();
-var preMiddlewareHelpers = require(settings.ctrlsPath + '_helpers').middlewares.pre;
+var preMiddlewareHelpers = require(settings.ctrlsPath + '/_helpers').middlewares.pre;
 
 /**
  * Constants

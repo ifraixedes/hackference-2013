@@ -5,7 +5,7 @@ var settings = require('../../../../settings');
 /**
  * Globals
  */
-var secIssuesLogger = settings.appLoggers('securityIssues');
+var secIssuesLogger = settings.appLoggers.getWinstonLogger('securityIssues');
 
 /**
  * Constants

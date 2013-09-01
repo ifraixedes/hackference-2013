@@ -9,6 +9,7 @@ var settings = require('../../../settings');
 var mongoDbLogger = settings.appLoggers.getWinstonLogger('mongodb');
 var helperGlobalsCtrls = require(settings.ctrlsPath + '/_helpers').globals;
 var helperActionsCtrls = require(settings.ctrlsPath + '/_helpers').actions;
+var preMiddlewareHelpers = require(settings.ctrlsPath + '/_helpers').middlewares.pre;
 //Database (MongoDB)
 var ObjectID = require('mongodb').ObjectID;
 var mongoConnService = require(settings.servicesPath + '/mongoConns');
@@ -43,14 +44,14 @@ module.exports = function (req, res, next, post) {
 	if (eventAttendance.payedAmount) {
 		updateObj = {
 			$addToSet: {
-				attendess: {_id: new ObjectID(user.id), amount: eventAttendance.payedAmount},
+				attendees: {_id: new ObjectID(user.id), amount: eventAttendance.payedAmount},
 				$inc: {total_amount: eventAttendance.payedAmount}
 			}
 		};
 	} else {
 		updateObj = {
 			$addToSet: {
-				attendess: {_id: new ObjectID(user.id), amount: 0}
+				attendees: {_id: new ObjectID(user.id), amount: 0}
 			}
 		};
 	}
@@ -59,6 +60,9 @@ module.exports = function (req, res, next, post) {
 			url: eventAttendance.url
 		},
 		updateObj,
+		{
+			upsert: true
+		},
 		function (err) {
 
 			if (err) {
@@ -67,6 +71,9 @@ module.exports = function (req, res, next, post) {
 			}
 
 			sendResponse(req, res, post);
+			preMiddlewareHelpers.addProcessedData(req, 'event', {
+				url:  eventAttendance.url
+			}, true);
 		}
 	);
 

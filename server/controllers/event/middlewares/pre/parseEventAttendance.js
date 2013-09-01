@@ -19,7 +19,7 @@ var LOG_PREFIX = 'Controller-> event | Pre-middlware-> parseEventAttendance: ';
 /**
  * Expected object under req.body: {
  *  url: Event url,
- *  transaction_id:
+ *  [payment_token]: The payment token got from paymill
  * }
  *
  * @param req
@@ -33,21 +33,14 @@ module.exports = function parseEventAttendance(req, res, next) {
 		var eventAttObj = req.body;
 
 		checker(eventAttObj.url).isUrl();
+		preMiddlewareHelpers.addProcessedData(req, 'eventAttendance', eventAttObj, false);
 
-//		if (eventAttObj.tracks) {
-//				if (eventAttObj.tracks instanceof Array) {
-//
-//					// TODO check if all the elements are numbers
-//
-//
-//				} else {
-//					throw new Error('tracks must be an array');
-//				}
-//		} else {
-//			eventAttObj.tracks = [];
-//		}
+		if (eventAttObj.payment_token) {
+			preMiddlewareHelpers.addProcessedData(req, 'paymentToken', eventAttObj.payment_token, false);
+		}
 
-		preMiddlewareHelpers.addProcessedData(req, 'eventAttendance', eventAttObj, false, next);
+		next();
+
 	} catch (e) {
 
 		defLogger.warn(LOG_PREFIX + 'Invalid event attendance object. Error details: ' + e.message);

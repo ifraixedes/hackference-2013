@@ -45,6 +45,9 @@ module.exports = function (callback) {
 		}
 	}
 
+	// Load authentication strategies
+	require(settings.libsPath + '/auth/strategies');
+
 	appServices.start(function (err) {
 
 		if (err) {

@@ -1,5 +1,3 @@
-
-
 (function initialize() {
 	'use strict';
 
@@ -32,7 +30,8 @@
 		usersCol.findOne({
 				email: emailAddr
 			}, {
-				_id: true
+				_id: true,
+				password: true
 			},
 			function (err, user) {
 
@@ -51,10 +50,11 @@
 					return;
 				}
 
+				var shasum = createHash('sha1');
+				shasum.update(password);
 
-				var passwordHash = createHash(password);
 
-				if (passwordHash === user.password) {
+				if (shasum.digest('base64') === user.password) {
 					delete user.password;
 
 					done(null, user);

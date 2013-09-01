@@ -23,7 +23,7 @@ var objUtils = require(settings.libsPath + '/ifc/util/objects');
  */
 module.exports = function(req, propertyPath, dataObj, override, next) {
 
-  if ((override) && ('function' === typeof override)) {
+  if ('function' === typeof override) {
     next = override;
     override = false;
   }

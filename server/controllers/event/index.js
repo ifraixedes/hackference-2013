@@ -8,6 +8,9 @@ module.exports = {
 	middlewares: {
 		pre: {
 			parseEventData: require('./middlewares/pre/parseEventAttendance')
+		},
+		post: {
+			twilioNotifier: require('./middlewares/post/twilioNotifier')
 		}
 	}
 };

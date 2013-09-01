@@ -1,8 +1,9 @@
 'use strict';
 
 var settings = require('../../settings.js');
-var express = require('express');
 var connect = require('connect');
+var express = require('express');
+var sessManagerMiddleware = require(settings.libsPath + '/ifc/connect/sessionManager');
 
 
 module.exports = {
@@ -19,7 +20,10 @@ module.exports = {
 		// Empty, so default settings will be used
 	},
 	express_middlewares: [
+		express.static(settings.publicPath),
 		connect.middleware.json(), // Get json body from application/json headers but it doesn't parse it
+		settings.libsPath + '/sessionBootstrapper',
+		sessManagerMiddleware(require(settings.libsPath + '/sessionManager')),
 		settings.appLoggers.getExpressWinston('logger'), // Request logger
 		settings.routesPath, // Routes
 		settings.appLoggers.getExpressWinston('errorLogger') // Error logger

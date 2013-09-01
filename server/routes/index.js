@@ -8,7 +8,7 @@ module.exports = function (expressApp) {
 
 	var settings = require('../settings');
 	var Wirexroutes = require('wirexroutes');
-	var routes = require('./app');
+	var routes = require('./user');
 
 	routes.push.apply(routes, require('./event'));
 

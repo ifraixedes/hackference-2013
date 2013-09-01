@@ -1,0 +1,13 @@
+<h1>Come into!!!</h1>
+
+<form name="login" data-ng-submit="submit()">
+	<label>email: <input name="email" data-ng-model="email" type="email" data-ng-trim="true" required>
+	</label>
+	<br>
+	<label>password: <input name="password" data-ng-model="password" type="password"
+	                        data-ng-minlength="8"
+	                         required></label>
+	<input type="submit" data-ng-disabled="login.$invalid" value="login">
+
+	<span data-ng-show="error">It happened some error, please try again</span>
+</form>

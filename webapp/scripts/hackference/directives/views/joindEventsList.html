@@ -1,0 +1,14 @@
+<div data-ng-hide="isError">
+	<button data-ng-click="previousPage()" data-ng-disabled="disablePrev"><<--</button>
+	<button data-ng-click="nextPage()">-->></button>
+	<li data-ng-repeat="event in eventsList">
+		<ul>
+			<button data-ng-click="eventClick(event)">details</button>
+			{{event.name}} ({{event.start_date | date:'medium'}} --> {{event.end_date | date:'medium'}})
+		</ul>
+	</li>
+</div>
+<div data-ng-show="isError">
+	<span data-ng-bind="error"></span>
+</div>
+

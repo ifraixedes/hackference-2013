@@ -2,7 +2,7 @@
 
 
 module.exports = {
-	global: {
+	globals: {
 		addError: require('./addError')
 	},
 	actions: {
