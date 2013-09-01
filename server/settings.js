@@ -17,6 +17,7 @@ exports.env = (process.env.npm_package_config_env) ?
 
 
 exports.rootPath = rootPath;
+exports.publicPath = path.resolve(rootPath, '../webapp');
 exports.routesPath = path.join(rootPath, 'routes');
 exports.ctrlsPath = path.join(rootPath, 'controllers');
 exports.servicesPath = path.join(rootPath, 'services');
